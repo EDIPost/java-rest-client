@@ -1,4 +1,4 @@
-package no.edipost.integration.client;
+package no.edipost.integration.client.builder;
 
 
 import no.edipost.integration.client.domain.Consignee;
@@ -17,7 +17,7 @@ public class ConsigneeBuilder {
 	private String country;
 
 
-	ConsigneeBuilder() {
+	public ConsigneeBuilder() {
 	}
 
 

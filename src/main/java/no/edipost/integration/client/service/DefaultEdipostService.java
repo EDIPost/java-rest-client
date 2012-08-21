@@ -1,9 +1,11 @@
-package no.edipost.integration.client;
+package no.edipost.integration.client.service;
 
 
 import com.sun.jersey.api.client.Client;
+import no.edipost.integration.client.builder.ConsigneeBuilder;
+import no.edipost.integration.client.builder.ConsignmentBuilder;
+import no.edipost.integration.client.builder.ConsignorBuilder;
 import no.edipost.integration.client.domain.Consignee;
-import no.edipost.integration.client.service.ConsigneeService;
 import sun.misc.BASE64Encoder;
 
 
@@ -12,17 +14,17 @@ import sun.misc.BASE64Encoder;
  *
  * @author Mathias Bjerke
  */
-public class EdipostService {
+public class DefaultEdipostService implements EdipostService {
 	private String baseURL;
 	private String apiKey;
 	private ConsigneeService consigneeService;
 
 
-	public EdipostService( String baseURL, String apiKey ) {
+	public DefaultEdipostService( String baseURL, String apiKey ) {
 		this.baseURL = baseURL;
 		this.apiKey = apiKey;
 
-		consigneeService = new ConsigneeService( createClient(), baseURL, packageApiKey( apiKey ) );
+		consigneeService = new DefaultConsigneeService( createClient(), baseURL, packageApiKey( apiKey ) );
 	}
 
 

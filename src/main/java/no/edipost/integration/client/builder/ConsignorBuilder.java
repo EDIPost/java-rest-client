@@ -1,4 +1,4 @@
-package no.edipost.integration.client;
+package no.edipost.integration.client.builder;
 
 
 /**

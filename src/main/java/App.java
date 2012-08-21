@@ -1,5 +1,6 @@
-import no.edipost.integration.client.EdipostService;
+import no.edipost.integration.client.service.DefaultEdipostService;
 import no.edipost.integration.client.domain.Consignee;
+import no.edipost.integration.client.service.EdipostService;
 import javax.print.PrintService;
 import java.awt.print.PrinterJob;
 
@@ -12,7 +13,7 @@ public class App {
 
 		
 		// -- Connect to service
-		EdipostService service = new EdipostService( "http://localhost:2847/edipost-integration", "f666b087a3bf58ef24082882dcd056cde3e7a2ec" );
+		EdipostService service = new DefaultEdipostService( "http://localhost:2847/edipost-integration", "f666b087a3bf58ef24082882dcd056cde3e7a2ec" );
 
 
 		/*
