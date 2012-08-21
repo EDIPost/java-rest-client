@@ -1,6 +1,7 @@
-import no.edipost.integration.client.service.DefaultEdipostService;
 import no.edipost.integration.client.domain.Consignee;
+import no.edipost.integration.client.service.DefaultEdipostService;
 import no.edipost.integration.client.service.EdipostService;
+import no.edipost.integration.client.service.Locator;
 import javax.print.PrintService;
 import java.awt.print.PrinterJob;
 
@@ -35,9 +36,27 @@ public class App {
 		myConsignee.remove();
 		*/
 
+
+
+
+
+
+
+
+
 		Consignee consignee = service.getConsignee( 102533 );
 
 		System.out.println( consignee.getCompanyName() );
+		
+
+
+
+
+
+
+
+
+
 
 
 

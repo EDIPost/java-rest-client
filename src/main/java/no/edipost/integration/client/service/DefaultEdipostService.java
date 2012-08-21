@@ -17,14 +17,13 @@ import sun.misc.BASE64Encoder;
 public class DefaultEdipostService implements EdipostService {
 	private String baseURL;
 	private String apiKey;
-	private ConsigneeService consigneeService;
 
 
 	public DefaultEdipostService( String baseURL, String apiKey ) {
 		this.baseURL = baseURL;
 		this.apiKey = apiKey;
 
-		consigneeService = new DefaultConsigneeService( createClient(), baseURL, packageApiKey( apiKey ) );
+		Locator.register( ConsigneeService.class, new DefaultConsigneeService( createClient(), baseURL, packageApiKey( apiKey ) ) );
 	}
 
 
@@ -59,6 +58,6 @@ public class DefaultEdipostService implements EdipostService {
 
 
 	public Consignee getConsignee( long consigneeID ) {
-		return consigneeService.getConsignee( consigneeID );
+		return Locator.resolve( ConsigneeService.class ).getConsignee( consigneeID );
 	}
 }
