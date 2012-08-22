@@ -97,4 +97,9 @@ public class Consignee {
 	public Consignee save() {
 		return Locator.resolve( ConsigneeService.class ).saveConsignee( this );
 	}
+
+
+	public boolean remove() {
+		return Locator.resolve( ConsigneeService.class ).removeConsignee( getID() );
+	}
 }

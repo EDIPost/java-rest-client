@@ -72,4 +72,23 @@ public class DefaultConsigneeService implements ConsigneeService {
 
 		return response.getEntity( Consignee.class );
 	}
+
+
+	public boolean removeConsignee( Long consigneeID ) {
+		ClientResponse response;
+
+		response = resource
+				.path( String.valueOf( consigneeID ) )
+				.accept( "application/vnd.edipost.party+xml" )
+				.type( "application/vnd.edipost.party+xml" )
+				.header( "Authorization", "Basic " + apiKey )
+				.delete( ClientResponse.class );
+
+		if( response.getStatus() != Response.Status.NO_CONTENT.getStatusCode() ) {
+			throw new WebServiceException( Response.Status.fromStatusCode( response.getStatus() ).getReasonPhrase() +
+					": " + response.getEntity( String.class ) );
+		}
+
+		return true;
+	}
 }

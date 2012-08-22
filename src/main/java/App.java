@@ -22,7 +22,7 @@ public class App {
 		ConsigneeBuilder builder = service.consigneeBuilder();
 
 		Consignee myConsignee = builder
-			.setID(261685)
+			.setID(261686)
 			.setCompanyName( "Et annet navn" )
 			.setPostZip( "1337" )
 			.setStreetZip( "1337" )
@@ -30,11 +30,11 @@ public class App {
 			.build();
 
 		// -- Save consignee
-		Consignee newConsignee = myConsignee.save();
-		System.out.println( newConsignee.getID() );
+		//Consignee newConsignee = myConsignee.save();
+		//System.out.println( newConsignee.getID() );
 
 		// -- Remove consignee
-		//myConsignee.remove();
+		myConsignee.remove();
 
 
 

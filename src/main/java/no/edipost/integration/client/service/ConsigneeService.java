@@ -10,4 +10,5 @@ import no.edipost.integration.client.domain.Consignee;
 public interface ConsigneeService {
 	Consignee getConsignee( long consigneeID );
 	Consignee saveConsignee( Consignee consignee );
+	boolean removeConsignee( Long consigneeID );
 }
