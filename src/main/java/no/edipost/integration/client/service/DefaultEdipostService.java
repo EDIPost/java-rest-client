@@ -7,6 +7,7 @@ import no.edipost.integration.client.builder.ConsignmentBuilder;
 import no.edipost.integration.client.builder.ConsignorBuilder;
 import no.edipost.integration.client.domain.Consignee;
 import sun.misc.BASE64Encoder;
+import java.util.List;
 
 
 /**
@@ -42,22 +43,39 @@ public class DefaultEdipostService implements EdipostService {
 	}
 
 
+	/*
+	 * Consignors
+	 */
+
 	public ConsignorBuilder consignorBuilder() {
 		return new ConsignorBuilder();
 	}
 
+
+	/*
+	 * Consignees
+	 */
 
 	public ConsigneeBuilder consigneeBuilder() {
 		return new ConsigneeBuilder();
 	}
 
 
-	public ConsignmentBuilder consignmentBuilder() {
-		return new ConsignmentBuilder();
+	public Consignee getConsignee( long consigneeID ) {
+		return Locator.resolve( ConsigneeService.class ).getConsignee( consigneeID );
 	}
 
 
-	public Consignee getConsignee( long consigneeID ) {
-		return Locator.resolve( ConsigneeService.class ).getConsignee( consigneeID );
+	public List<Consignee> findConsignee( String searchPhrase ) {
+		return Locator.resolve( ConsigneeService.class ).findConsignee( searchPhrase );
+	}
+
+
+	/*
+	 * Consignments
+	 */
+
+	public ConsignmentBuilder consignmentBuilder() {
+		return new ConsignmentBuilder();
 	}
 }

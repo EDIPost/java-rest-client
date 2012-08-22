@@ -5,6 +5,7 @@ import no.edipost.integration.client.builder.ConsigneeBuilder;
 import no.edipost.integration.client.builder.ConsignmentBuilder;
 import no.edipost.integration.client.builder.ConsignorBuilder;
 import no.edipost.integration.client.domain.Consignee;
+import java.util.List;
 
 
 /**
@@ -15,4 +16,5 @@ public interface EdipostService {
 	ConsigneeBuilder consigneeBuilder();
 	ConsignmentBuilder consignmentBuilder();
 	Consignee getConsignee( long consigneeID );
+	List<Consignee> findConsignee( String searchPhrase );
 }

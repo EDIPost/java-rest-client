@@ -1,14 +1,14 @@
 package no.edipost.integration.client.service;
 
 
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.GenericType;
-import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.*;
 import no.edipost.integration.client.domain.Consignee;
+import no.edipost.integration.client.domain.RestCollection;
+import no.edipost.integration.client.utilities.ErrorUtilities;
 import javax.ws.rs.core.Response;
 import javax.xml.bind.JAXBElement;
 import javax.xml.ws.WebServiceException;
+import java.util.List;
 
 
 /**
@@ -90,5 +90,24 @@ public class DefaultConsigneeService implements ConsigneeService {
 		}
 
 		return true;
+	}
+
+
+	public List<Consignee> findConsignee( String searchPhrase ) {
+		RestCollection<Consignee> response = null;
+
+		try {
+			response = resource
+					.queryParam( "query", searchPhrase )
+					.accept( "application/vnd.edipost.collection+xml" )
+					.header( "Authorization", "Basic " + apiKey )
+					.get( new GenericType<RestCollection<Consignee>>() {
+					} );
+
+		} catch( UniformInterfaceException e ) {
+			ErrorUtilities.handleError( e );
+		}
+
+		return response.getEntries();
 	}
 }

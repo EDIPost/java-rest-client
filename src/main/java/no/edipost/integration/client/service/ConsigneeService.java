@@ -2,6 +2,7 @@ package no.edipost.integration.client.service;
 
 
 import no.edipost.integration.client.domain.Consignee;
+import java.util.List;
 
 
 /**
@@ -11,4 +12,5 @@ public interface ConsigneeService {
 	Consignee getConsignee( long consigneeID );
 	Consignee saveConsignee( Consignee consignee );
 	boolean removeConsignee( Long consigneeID );
+	List<Consignee> findConsignee( String searchPhrase );
 }

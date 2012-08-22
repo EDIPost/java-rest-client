@@ -1,9 +1,9 @@
-import no.edipost.integration.client.builder.ConsigneeBuilder;
 import no.edipost.integration.client.domain.Consignee;
 import no.edipost.integration.client.service.DefaultEdipostService;
 import no.edipost.integration.client.service.EdipostService;
 import javax.print.PrintService;
 import java.awt.print.PrinterJob;
+import java.util.List;
 
 
 /**
@@ -18,6 +18,7 @@ public class App {
 
 
 
+		/*
 		// -- Build consignee
 		ConsigneeBuilder builder = service.consigneeBuilder();
 
@@ -30,12 +31,12 @@ public class App {
 			.build();
 
 		// -- Save consignee
-		//Consignee newConsignee = myConsignee.save();
-		//System.out.println( newConsignee.getID() );
+		Consignee newConsignee = myConsignee.save();
+		System.out.println( newConsignee.getID() );
 
 		// -- Remove consignee
 		myConsignee.remove();
-
+		*/
 
 
 
@@ -51,9 +52,10 @@ public class App {
 		*/
 
 
-
-
-
+		List<Consignee> consigneeList = service.findConsignee( "test" );
+		for( Consignee consignee : consigneeList ) {
+			System.out.println( consignee.getCompanyName() );
+		}
 
 
 
