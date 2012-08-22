@@ -1,0 +1,86 @@
+// -- Connect to API with your key ---
+
+Edipost service = new Edipost("mysecretapikey");
+
+
+
+
+
+// -- Find consignor ---
+
+List<Consignor> consignor = service.findConsignor( "search phrase" );
+
+Consignor consignor = service.getConsignor( 123 );
+
+Consignor consignor = service.getDefaultConsignor();
+
+
+
+
+
+// -- Find consignee ---
+
+List<Consignee> consignees = service.findConsignee( "search phrase" );
+
+Consignee consignee = service.getConsignee( 123 );
+
+
+
+
+
+// -- Create Consignee ---
+
+ConsigneeBuilder builder = service.consigneeBuilder();
+
+Consignee myConsignee = builder
+	.setCompanyName( "MyCompany Inc" )
+	.setStreetAddress( "MyStreetAddress 1" )
+	.setStreetAddressZip( "1337" )
+	.setStreetAddressCity( "Sandvika" )
+	.setCountry( "NO" )
+	/* And many more */
+	.build();
+
+myConsignee.save()
+myConsignee.remove()
+
+
+
+
+
+// -- Find filtered products ---
+
+List<Product> products = service.findProducts( consignorID, consigneeID );
+
+
+
+
+
+// -- Create Consignment ---
+
+ConsignmentBuilder builder = service.consignmentBuilder();
+
+Consignment myConsignment = builder
+	.setConsignor( consignorID )
+	.setConsignee( consigneeID )
+	.setProduct( productID )
+	.addService( new CashOnDelivery( 1250, "123456789" ) )
+	.addService( new EarlyDelivery() )
+	.addItem( new Item( 10.5, 15 ) )
+	.addItem( new Item( 7.0, 10 ) )
+	.build();
+
+myConsignment.print();
+
+
+
+
+// -- Track and Trace ---
+
+TrackAndTrace tat = myConsignment.trackAndTrace();
+
+for( Event event : tat.getEvents() ) {
+	// event.getTime()
+	// event.getLocation()
+	// event.getType()
+}

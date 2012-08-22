@@ -1,11 +1,10 @@
 package no.edipost.integration.client.domain;
 
 
+import no.edipost.integration.client.service.ConsigneeService;
+import no.edipost.integration.client.service.Locator;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -22,12 +21,6 @@ public class Consignee {
 	private Address streetAddress;
 	private Address postAddress;
 	private Contact contact;
-	private List<Link> links;
-
-
-	public Consignee() {
-		links = new ArrayList<Link>();
-	}
 
 
 	@XmlAttribute
@@ -101,13 +94,7 @@ public class Consignee {
 	}
 
 
-	public void addLink( Link link ) {
-		links.add( link );
-	}
-
-
-	@XmlElement(name = "link")
-	public List<Link> getLinks() {
-		return links;
+	public Consignee save() {
+		return Locator.resolve( ConsigneeService.class ).saveConsignee( this );
 	}
 }

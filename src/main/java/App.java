@@ -1,7 +1,7 @@
+import no.edipost.integration.client.builder.ConsigneeBuilder;
 import no.edipost.integration.client.domain.Consignee;
 import no.edipost.integration.client.service.DefaultEdipostService;
 import no.edipost.integration.client.service.EdipostService;
-import no.edipost.integration.client.service.Locator;
 import javax.print.PrintService;
 import java.awt.print.PrinterJob;
 
@@ -17,24 +17,24 @@ public class App {
 		EdipostService service = new DefaultEdipostService( "http://localhost:2847/edipost-integration", "f666b087a3bf58ef24082882dcd056cde3e7a2ec" );
 
 
-		/*
+
 		// -- Build consignee
 		ConsigneeBuilder builder = service.consigneeBuilder();
 
 		Consignee myConsignee = builder
-			.setCompanyName( "MyCompany Inc" )
-			.setStreetAddress( "MyStreetAddress 1" )
+			.setID(261685)
+			.setCompanyName( "Et annet navn" )
+			.setPostZip( "1337" )
 			.setStreetZip( "1337" )
-			.setStreetCity( "Sandvika" )
 			.setCountry( "NO" )
 			.build();
 
 		// -- Save consignee
-		myConsignee.save();
+		Consignee newConsignee = myConsignee.save();
+		System.out.println( newConsignee.getID() );
 
 		// -- Remove consignee
-		myConsignee.remove();
-		*/
+		//myConsignee.remove();
 
 
 
@@ -44,10 +44,11 @@ public class App {
 
 
 
+		/*
 		Consignee consignee = service.getConsignee( 102533 );
 
 		System.out.println( consignee.getCompanyName() );
-		
+		*/
 
 
 
