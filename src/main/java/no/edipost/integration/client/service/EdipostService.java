@@ -23,4 +23,5 @@ public interface EdipostService {
 
 	ConsignmentBuilder consignmentBuilder();
 	Consignment getConsignment( long consignmentID );
+	List<Consignment> findConsignment( String searchPhrase );
 }

@@ -13,7 +13,7 @@ import java.util.List;
  * @author Mathias Bjerke
  */
 @XmlRootElement(name = "collection")
-@XmlSeeAlso({Consignee.class})
+@XmlSeeAlso({Consignee.class, Consignment.class})
 public class RestCollection<T> {
 	private List<T> entries;
 

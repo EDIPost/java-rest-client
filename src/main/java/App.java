@@ -14,7 +14,6 @@ import java.util.List;
  */
 public class App {
 	public static void main( String[] args ) {
-
 		
 		// -- Connect to service
 		EdipostService service = new DefaultEdipostService( "http://localhost:2847/edipost-integration", "f666b087a3bf58ef24082882dcd056cde3e7a2ec" );
@@ -83,6 +82,17 @@ public class App {
 		}
 */
 
+
+
+
+
+
+
+		List<Consignment> consignmentList = service.findConsignment( "*" );
+		
+		for( Consignment c : consignmentList ) {
+			System.out.println(c.getShipmentNumber());
+		}
 
 
 

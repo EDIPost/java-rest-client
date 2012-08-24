@@ -3,7 +3,9 @@ package no.edipost.integration.client.service;
 
 import com.sun.jersey.api.client.*;
 import no.edipost.integration.client.domain.Consignment;
+import no.edipost.integration.client.domain.RestCollection;
 import no.edipost.integration.client.utilities.ErrorUtilities;
+import java.util.List;
 
 
 /**
@@ -39,5 +41,24 @@ public class DefaultConsignmentService implements ConsignmentService {
 		}
 
 		return response;
+	}
+
+
+	public List<Consignment> findConsignment( String searchPhrase ) {
+		RestCollection<Consignment> response = null;
+
+		try {
+			response = resource
+					.queryParam( "query", searchPhrase )
+					.accept( "application/vnd.edipost.collection+xml" )
+					.header( "Authorization", "Basic " + apiKey )
+					.get( new GenericType<RestCollection<Consignment>>() {
+					} );
+
+		} catch( UniformInterfaceException e ) {
+			ErrorUtilities.handleError( e );
+		}
+
+		return response.getEntries();
 	}
 }

@@ -86,4 +86,9 @@ public class DefaultEdipostService implements EdipostService {
 	public Consignment getConsignment( long consignmentID ) {
 		return Locator.resolve( ConsignmentService.class ).getConsignment( consignmentID );
 	}
+
+
+	public List<Consignment> findConsignment( String searchPhrase ) {
+		return Locator.resolve( ConsignmentService.class ).findConsignment( searchPhrase );
+	}
 }
