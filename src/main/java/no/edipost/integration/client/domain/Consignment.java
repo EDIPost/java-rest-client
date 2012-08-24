@@ -4,8 +4,6 @@ package no.edipost.integration.client.domain;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -22,12 +20,6 @@ public class Consignment {
 	private ItemCollection items;
 	private String shipmentNumber;
 	private String contentReference;
-	private List<Link> links;
-
-
-	public Consignment() {
-		links = new ArrayList<Link>();
-	}
 
 
 	@XmlAttribute
@@ -101,16 +93,5 @@ public class Consignment {
 
 	public void setContentReference( String contentReference ) {
 		this.contentReference = contentReference;
-	}
-
-
-	public void addLink( Link link ) {
-		links.add( link );
-	}
-
-
-	@XmlElement(name = "link")
-	public List<Link> getLinks() {
-		return links;
 	}
 }

@@ -14,16 +14,6 @@ public class ItemCollection {
 	private List<Item> entries;
 
 
-	public ItemCollection() {
-
-	}
-
-
-	public ItemCollection( List<Item> entries ) {
-		this.entries = entries;
-	}
-
-
 	@XmlElement(name = "item")
 	public List<Item> getEntries() {
 		return entries;

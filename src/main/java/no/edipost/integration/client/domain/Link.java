@@ -19,10 +19,6 @@ public class Link {
 	private String title;
 
 
-	public Link() {
-	}
-
-
 	@XmlAttribute
 	public String getHref() {
 		return href;

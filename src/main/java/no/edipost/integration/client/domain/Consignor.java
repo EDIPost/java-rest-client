@@ -2,10 +2,7 @@ package no.edipost.integration.client.domain;
 
 
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -22,12 +19,6 @@ public class Consignor {
 	private Address streetAddress;
 	private Address postAddress;
 	private Contact contact;
-	private List<Link> links;
-
-
-	public Consignor() {
-		links = new ArrayList<Link>();
-	}
 
 
 	@XmlAttribute
@@ -98,16 +89,5 @@ public class Consignor {
 
 	public void setContact( Contact contact ) {
 		this.contact = contact;
-	}
-
-
-	public void addLink( Link link ) {
-		links.add( link );
-	}
-
-
-	@XmlElement(name = "link")
-	public List<Link> getLinks() {
-		return links;
 	}
 }

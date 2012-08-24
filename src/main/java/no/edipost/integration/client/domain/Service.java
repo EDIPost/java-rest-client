@@ -2,7 +2,6 @@ package no.edipost.integration.client.domain;
 
 
 import javax.xml.bind.annotation.*;
-import java.util.List;
 
 
 /**
@@ -18,12 +17,6 @@ public class Service {
 	private ServiceDataCollection data;
 	private Double cost;
 	private Double vat;
-	private List<Parameter> serviceParameters;
-
-
-	public Service() {
-		data = new ServiceDataCollection();
-	}
 
 
 	@XmlAttribute
@@ -50,29 +43,12 @@ public class Service {
 
 	@XmlElement(name = "properties")
 	public ServiceDataCollection getData() {
-		if( data.getEntries().size() <= 0 )
-			return null;
-		else
-			return data;
+		return data;
 	}
 
 
 	public void setData( ServiceDataCollection data ) {
 		this.data = data;
-	}
-
-
-	public ServiceData getServiceDataByName( String serviceDataName ) {
-		for( ServiceData serviceData : data.getEntries() ) {
-			if( serviceData.getKey() != null && serviceData.getKey().equals( serviceDataName ) ) return serviceData;
-		}
-
-		return null;
-	}
-
-
-	public void addData( ServiceData data ) {
-		this.data.addEntry( data );
 	}
 
 
@@ -95,21 +71,5 @@ public class Service {
 
 	public void setVat( Double vat ) {
 		this.vat = vat;
-	}
-
-
-	public List<Parameter> getServiceParameters() {
-		return serviceParameters;
-	}
-
-
-	public void setServiceParameters( List<Parameter> serviceParameters ) {
-		this.serviceParameters = serviceParameters;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Service with ID: " + id;
 	}
 }

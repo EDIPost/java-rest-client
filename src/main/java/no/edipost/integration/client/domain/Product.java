@@ -4,7 +4,6 @@ package no.edipost.integration.client.domain;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -20,12 +19,6 @@ public class Product {
 	private Transporter transporter;
 	private String status;
 	private List<Service> services;
-	private List<Link> links;
-
-
-	public Product() {
-		links = new ArrayList<Link>();
-	}
 
 
 	@XmlAttribute
@@ -78,16 +71,5 @@ public class Product {
 
 	public void setServices( List<Service> services ) {
 		this.services = services;
-	}
-
-
-	public void addLink( Link link ) {
-		links.add( link );
-	}
-
-
-	@XmlElement(name = "link")
-	public List<Link> getLinks() {
-		return links;
 	}
 }

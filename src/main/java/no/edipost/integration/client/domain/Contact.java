@@ -18,10 +18,6 @@ public class Contact {
 	private String email;
 
 
-	public Contact() {
-	}
-
-
 	public String getName() {
 		return name;
 	}

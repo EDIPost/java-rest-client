@@ -16,10 +16,6 @@ public class Address {
 	private String city;
 
 
-	public Address() {
-	}
-
-
 	public String getAddress() {
 		return address;
 	}

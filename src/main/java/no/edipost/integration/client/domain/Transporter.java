@@ -15,10 +15,6 @@ public class Transporter {
 	private String name;
 
 
-	public Transporter() {
-	}
-
-
 	@XmlAttribute
 	public String getName() {
 		return name;

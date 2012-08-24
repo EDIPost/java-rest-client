@@ -20,10 +20,6 @@ public class Item {
 	private Double vat;
 
 
-	public Item() {
-	}
-
-
 	public String getConnoteNumber() {
 		return connoteNumber;
 	}

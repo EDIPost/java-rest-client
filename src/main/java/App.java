@@ -1,3 +1,4 @@
+import no.edipost.integration.client.domain.Consignee;
 import no.edipost.integration.client.domain.Consignment;
 import no.edipost.integration.client.domain.Consignor;
 import no.edipost.integration.client.domain.Item;
@@ -5,6 +6,7 @@ import no.edipost.integration.client.service.DefaultEdipostService;
 import no.edipost.integration.client.service.EdipostService;
 import javax.print.PrintService;
 import java.awt.print.PrinterJob;
+import java.util.List;
 
 
 /**
@@ -46,38 +48,40 @@ public class App {
 
 
 
-		/*
+/*
 		Consignee consignee = service.getConsignee( 102533 );
-
 		System.out.println( consignee.getCompanyName() );
-		*/
+*/
 
 
 
 
-		/*
+/*
 		List<Consignee> consigneeList = service.findConsignee( "test" );
-		for( Consignee consignee : consigneeList ) {
-			System.out.println( consignee.getCompanyName() );
+		for( Consignee c : consigneeList ) {
+			System.out.println( c.getCompanyName() );
 		}
-		*/
+*/
 
 
 
 
-		/*
+/*
 		Consignor consignor = service.getDefaultConsignor();
 		System.out.println( consignor.getCompanyName() );
-		*/
+*/
 
 
+
+
+/*
 		Consignment consignment = service.getConsignment( 95256 );
 		System.out.println( "SHIPMENT NUMBER: " + consignment.getShipmentNumber() );
 
 		for( Item item : consignment.getItems().getEntries() ) {
 			System.out.println( "ITEM NUMBER: " + item.getConnoteNumber() );
 		}
-
+*/
 
 
 
