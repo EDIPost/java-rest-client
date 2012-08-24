@@ -1,4 +1,6 @@
+import no.edipost.integration.client.domain.Consignment;
 import no.edipost.integration.client.domain.Consignor;
+import no.edipost.integration.client.domain.Item;
 import no.edipost.integration.client.service.DefaultEdipostService;
 import no.edipost.integration.client.service.EdipostService;
 import javax.print.PrintService;
@@ -63,8 +65,18 @@ public class App {
 
 
 
+		/*
 		Consignor consignor = service.getDefaultConsignor();
 		System.out.println( consignor.getCompanyName() );
+		*/
+
+
+		Consignment consignment = service.getConsignment( 95256 );
+		System.out.println( "SHIPMENT NUMBER: " + consignment.getShipmentNumber() );
+
+		for( Item item : consignment.getItems().getEntries() ) {
+			System.out.println( "ITEM NUMBER: " + item.getConnoteNumber() );
+		}
 
 
 
