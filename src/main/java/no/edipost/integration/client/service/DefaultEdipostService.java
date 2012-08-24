@@ -4,8 +4,8 @@ package no.edipost.integration.client.service;
 import com.sun.jersey.api.client.Client;
 import no.edipost.integration.client.builder.ConsigneeBuilder;
 import no.edipost.integration.client.builder.ConsignmentBuilder;
-import no.edipost.integration.client.builder.ConsignorBuilder;
 import no.edipost.integration.client.domain.Consignee;
+import no.edipost.integration.client.domain.Consignor;
 import sun.misc.BASE64Encoder;
 import java.util.List;
 
@@ -25,6 +25,7 @@ public class DefaultEdipostService implements EdipostService {
 		this.apiKey = apiKey;
 
 		Locator.register( ConsigneeService.class, new DefaultConsigneeService( createClient(), baseURL, packageApiKey( apiKey ) ) );
+		Locator.register( ConsignorService.class, new DefaultConsignorService( createClient(), baseURL, packageApiKey( apiKey ) ) );
 	}
 
 
@@ -47,8 +48,8 @@ public class DefaultEdipostService implements EdipostService {
 	 * Consignors
 	 */
 
-	public ConsignorBuilder consignorBuilder() {
-		return new ConsignorBuilder();
+	public Consignor getDefaultConsignor() {
+		return Locator.resolve( ConsignorService.class ).getDefaultConsignor();
 	}
 
 

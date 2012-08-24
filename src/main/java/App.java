@@ -1,9 +1,8 @@
-import no.edipost.integration.client.domain.Consignee;
+import no.edipost.integration.client.domain.Consignor;
 import no.edipost.integration.client.service.DefaultEdipostService;
 import no.edipost.integration.client.service.EdipostService;
 import javax.print.PrintService;
 import java.awt.print.PrinterJob;
-import java.util.List;
 
 
 /**
@@ -52,10 +51,20 @@ public class App {
 		*/
 
 
+
+
+		/*
 		List<Consignee> consigneeList = service.findConsignee( "test" );
 		for( Consignee consignee : consigneeList ) {
 			System.out.println( consignee.getCompanyName() );
 		}
+		*/
+
+
+
+
+		Consignor consignor = service.getDefaultConsignor();
+		System.out.println( consignor.getCompanyName() );
 
 
 
