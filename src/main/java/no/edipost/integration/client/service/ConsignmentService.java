@@ -2,6 +2,7 @@ package no.edipost.integration.client.service;
 
 
 import no.edipost.integration.client.domain.Consignment;
+import java.io.InputStream;
 import java.util.List;
 
 
@@ -13,4 +14,6 @@ import java.util.List;
 public interface ConsignmentService {
 	Consignment getConsignment( long consignmentID );
 	List<Consignment> findConsignment( String searchPhrase );
+	InputStream getConsignmentAsPdf( long consignmentID );
+	void printConsignment( Long id, String printerName );
 }

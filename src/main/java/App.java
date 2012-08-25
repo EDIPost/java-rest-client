@@ -4,8 +4,14 @@ import no.edipost.integration.client.domain.Consignor;
 import no.edipost.integration.client.domain.Item;
 import no.edipost.integration.client.service.DefaultEdipostService;
 import no.edipost.integration.client.service.EdipostService;
+import no.edipost.integration.client.utilities.FileUtilities;
+import org.apache.pdfbox.pdmodel.PDDocument;
 import javax.print.PrintService;
 import java.awt.print.PrinterJob;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 
@@ -47,52 +53,40 @@ public class App {
 
 
 
-/*
+		/*
 		Consignee consignee = service.getConsignee( 102533 );
 		System.out.println( consignee.getCompanyName() );
-*/
+		*/
 
 
 
 
-/*
+		/*
 		List<Consignee> consigneeList = service.findConsignee( "test" );
 		for( Consignee c : consigneeList ) {
 			System.out.println( c.getCompanyName() );
 		}
-*/
+		*/
 
 
 
 
-/*
+		/*
 		Consignor consignor = service.getDefaultConsignor();
 		System.out.println( consignor.getCompanyName() );
-*/
+		*/
 
 
 
 
-/*
+		/*
 		Consignment consignment = service.getConsignment( 95256 );
 		System.out.println( "SHIPMENT NUMBER: " + consignment.getShipmentNumber() );
 
 		for( Item item : consignment.getItems().getEntries() ) {
 			System.out.println( "ITEM NUMBER: " + item.getConnoteNumber() );
 		}
-*/
-
-
-
-
-
-
-
-		List<Consignment> consignmentList = service.findConsignment( "*" );
-		
-		for( Consignment c : consignmentList ) {
-			System.out.println(c.getShipmentNumber());
-		}
+		*/
 
 
 
@@ -100,41 +94,52 @@ public class App {
 
 
 		/*
-		PDDocument document;
-		String printerName = "PDF";
-
-		try {
-			document = PDDocument.load( "consignment.pdf" );
-
-			PrinterJob printJob = PrinterJob.getPrinterJob();
-			printJob.setJobName( "Edipost label" );
-			printJob.setPrintService( getPrintServiceByName( printerName ) );
-
-			document.silentPrint( printJob );
-
-			document.close();
-			
-
-		} catch( Exception e ) {
-			e.printStackTrace();
+		List<Consignment> consignmentList = service.findConsignment( "*" );
+		
+		for( Consignment c : consignmentList ) {
+			System.out.println(c.getShipmentNumber());
 		}
 		*/
 
 
 
 
-	}
 
 
-	private static PrintService getPrintServiceByName( String printerName ) {
-		PrintService[] printServices = PrinterJob.lookupPrintServices();
+		/*
+		Consignment consignment = service.getConsignment( 95256 );
+		InputStream in = consignment.pdf();
+		FileUtilities.saveInputStreamAsFile( in, "test.pdf" );
+		*/
 
-		for( PrintService printService : printServices ) {
-			if( printService.getName().equals( printerName ) ) {
-				return printService;
-			}
-		}
 
-		return null;
+
+
+
+		/*
+		Consignment consignment = service.getConsignment( 95256 );
+		consignment.pdf( "test2.pdf" );
+		*/
+
+		
+
+
+
+
+		/*
+		Consignment consignment = service.getConsignment( 95256 );
+		consignment.print( "PDF" );
+		*/
+
+
+
+
+
+		
+
+
+
+
+
 	}
 }

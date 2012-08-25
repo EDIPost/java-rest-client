@@ -1,9 +1,13 @@
 package no.edipost.integration.client.domain;
 
 
+import no.edipost.integration.client.service.ConsignmentService;
+import no.edipost.integration.client.service.Locator;
+import no.edipost.integration.client.utilities.FileUtilities;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.InputStream;
 
 
 /**
@@ -93,5 +97,21 @@ public class Consignment {
 
 	public void setContentReference( String contentReference ) {
 		this.contentReference = contentReference;
+	}
+
+
+	public InputStream pdf() {
+		return Locator.resolve( ConsignmentService.class ).getConsignmentAsPdf( getId() );
+	}
+
+
+	public void pdf( String filename ) {
+		InputStream in = Locator.resolve( ConsignmentService.class ).getConsignmentAsPdf( getId() );
+		FileUtilities.saveInputStreamAsFile( in, filename);
+	}
+
+
+	public void print( String printerName ) {
+		Locator.resolve( ConsignmentService.class ).printConsignment( getId(), printerName );
 	}
 }

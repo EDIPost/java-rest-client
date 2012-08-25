@@ -5,6 +5,8 @@ import com.sun.jersey.api.client.*;
 import no.edipost.integration.client.domain.Consignment;
 import no.edipost.integration.client.domain.RestCollection;
 import no.edipost.integration.client.utilities.ErrorUtilities;
+import no.edipost.integration.client.utilities.PrintUtilities;
+import java.io.InputStream;
 import java.util.List;
 
 
@@ -60,5 +62,29 @@ public class DefaultConsignmentService implements ConsignmentService {
 		}
 
 		return response.getEntries();
+	}
+
+
+	public InputStream getConsignmentAsPdf( long consignmentID ) {
+		InputStream response = null;
+
+		try {
+			response = resource
+					.path( String.valueOf( consignmentID ) )
+					.path( "print" )
+					.accept( "application/pdf" )
+					.header( "Authorization", "Basic " + apiKey )
+					.get( InputStream.class );
+
+		} catch( UniformInterfaceException e ) {
+			ErrorUtilities.handleError( e );
+		}
+
+		return response;
+	}
+
+
+	public void printConsignment( Long consignmentID, String printerName ) {
+		PrintUtilities.printPdf( getConsignmentAsPdf( consignmentID ), printerName );
 	}
 }
