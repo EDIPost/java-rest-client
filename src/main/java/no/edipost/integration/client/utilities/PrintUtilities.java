@@ -43,6 +43,6 @@ public class PrintUtilities {
 			}
 		}
 
-		throw new PrintException( "There is not printer named " + printerName );
+		throw new PrintException( "There is no printer named " + printerName );
 	}
 }

@@ -1,6 +1,7 @@
 package no.edipost.integration.client.domain;
 
 
+import no.edipost.integration.client.domain.consignment.Consignment;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;

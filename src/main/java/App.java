@@ -1,18 +1,9 @@
-import no.edipost.integration.client.domain.Consignee;
-import no.edipost.integration.client.domain.Consignment;
-import no.edipost.integration.client.domain.Consignor;
-import no.edipost.integration.client.domain.Item;
+import no.edipost.integration.client.builder.ConsignmentBuilder;
+import no.edipost.integration.client.domain.consignment.Consignment;
+import no.edipost.integration.client.domain.consignment.Item;
+import no.edipost.integration.client.domain.service.BringDomesticCodService;
 import no.edipost.integration.client.service.DefaultEdipostService;
 import no.edipost.integration.client.service.EdipostService;
-import no.edipost.integration.client.utilities.FileUtilities;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import javax.print.PrintService;
-import java.awt.print.PrinterJob;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.List;
 
 
 /**
@@ -135,10 +126,19 @@ public class App {
 
 
 
-		
 
+		ConsignmentBuilder builder = service.consignmentBuilder();
 
+		Consignment myConsignment = builder
+			.setConsignorID( 3311 )
+			.setConsigneeID( 191511 )
+			.addItem( new Item( 1.0, 10.0, 10.0, 10.0 ) )
+			.setProductID( 13 )
+			.addService( new BringDomesticCodService( 1200.00, "123456789" ) )
+			.setContentReference( "Innholdet" )
+			.build();
 
+		myConsignment.save();
 
 
 	}

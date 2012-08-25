@@ -1,6 +1,9 @@
-package no.edipost.integration.client.domain;
+package no.edipost.integration.client.domain.consignment;
 
 
+import no.edipost.integration.client.domain.Consignee;
+import no.edipost.integration.client.domain.Consignor;
+import no.edipost.integration.client.domain.Product;
 import no.edipost.integration.client.service.ConsignmentService;
 import no.edipost.integration.client.service.Locator;
 import no.edipost.integration.client.utilities.FileUtilities;
@@ -113,5 +116,10 @@ public class Consignment {
 
 	public void print( String printerName ) {
 		Locator.resolve( ConsignmentService.class ).printConsignment( getId(), printerName );
+	}
+
+
+	public Consignment save() {
+		return Locator.resolve( ConsignmentService.class ).saveConsignment( this );
 	}
 }

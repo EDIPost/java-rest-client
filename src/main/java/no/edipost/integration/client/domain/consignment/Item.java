@@ -1,4 +1,4 @@
-package no.edipost.integration.client.domain;
+package no.edipost.integration.client.domain.consignment;
 
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -18,6 +18,18 @@ public class Item {
 	private Double length;
 	private Double cost;
 	private Double vat;
+
+
+	public Item() {
+	}
+
+
+	public Item( Double weight, Double height, Double width, Double length ) {
+		this.weight = weight;
+		this.height = height;
+		this.width = width;
+		this.length = length;
+	}
 
 
 	public String getConnoteNumber() {

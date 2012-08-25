@@ -1,4 +1,4 @@
-package no.edipost.integration.client.domain;
+package no.edipost.integration.client.domain.service;
 
 
 import javax.xml.bind.annotation.XmlAttribute;
@@ -14,6 +14,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ServiceData {
 	private String key;
 	private String value;
+
+
+	public ServiceData() {
+	}
+
+
+	public ServiceData( String key, String value ) {
+		this.key = key;
+		this.value = value;
+	}
 
 
 	@XmlAttribute

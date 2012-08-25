@@ -1,4 +1,4 @@
-package no.edipost.integration.client.domain;
+package no.edipost.integration.client.domain.service;
 
 
 import javax.xml.bind.annotation.*;
@@ -17,6 +17,11 @@ public class Service {
 	private ServiceDataCollection data;
 	private Double cost;
 	private Double vat;
+
+
+	public Service() {
+		data = new ServiceDataCollection();
+	}
 
 
 	@XmlAttribute
@@ -49,6 +54,11 @@ public class Service {
 
 	public void setData( ServiceDataCollection data ) {
 		this.data = data;
+	}
+
+
+	public void addData( ServiceData entry ) {
+		data.addEntry( entry );
 	}
 
 

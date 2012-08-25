@@ -1,6 +1,7 @@
 package no.edipost.integration.client.domain;
 
 
+import no.edipost.integration.client.domain.service.Service;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

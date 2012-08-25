@@ -4,7 +4,7 @@ package no.edipost.integration.client.service;
 import no.edipost.integration.client.builder.ConsigneeBuilder;
 import no.edipost.integration.client.builder.ConsignmentBuilder;
 import no.edipost.integration.client.domain.Consignee;
-import no.edipost.integration.client.domain.Consignment;
+import no.edipost.integration.client.domain.consignment.Consignment;
 import no.edipost.integration.client.domain.Consignor;
 import java.util.List;
 

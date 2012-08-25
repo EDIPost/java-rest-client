@@ -1,4 +1,4 @@
-package no.edipost.integration.client.domain;
+package no.edipost.integration.client.domain.consignment;
 
 
 import javax.xml.bind.annotation.XmlElement;

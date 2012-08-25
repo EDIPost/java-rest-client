@@ -2,10 +2,12 @@ package no.edipost.integration.client.service;
 
 
 import com.sun.jersey.api.client.*;
-import no.edipost.integration.client.domain.Consignment;
+import no.edipost.integration.client.domain.consignment.Consignment;
 import no.edipost.integration.client.domain.RestCollection;
 import no.edipost.integration.client.utilities.ErrorUtilities;
 import no.edipost.integration.client.utilities.PrintUtilities;
+import javax.ws.rs.core.Response;
+import javax.xml.ws.WebServiceException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -86,5 +88,23 @@ public class DefaultConsignmentService implements ConsignmentService {
 
 	public void printConsignment( Long consignmentID, String printerName ) {
 		PrintUtilities.printPdf( getConsignmentAsPdf( consignmentID ), printerName );
+	}
+
+
+	public Consignment saveConsignment( Consignment consignment ) {
+		ClientResponse response;
+
+		response = resource
+				.accept( "application/vnd.edipost.consignment+xml" )
+				.type( "application/vnd.edipost.consignment+xml" )
+				.header( "Authorization", "Basic " + apiKey )
+				.post( ClientResponse.class, consignment );
+
+		if( response.getStatus() != Response.Status.OK.getStatusCode() ) {
+			throw new WebServiceException( Response.Status.fromStatusCode( response.getStatus() ).getReasonPhrase() +
+					": " + response.getEntity( String.class ) );
+		}
+
+		return response.getEntity( Consignment.class );
 	}
 }
