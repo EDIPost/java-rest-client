@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author Mathias Bjerke
  */
-public class DefaultEdipostService implements EdipostService {
+class DefaultEdipostService implements EdipostService {
 	private String baseURL;
 	private String apiKey;
 

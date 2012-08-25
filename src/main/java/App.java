@@ -2,8 +2,8 @@ import no.edipost.integration.client.builder.ConsignmentBuilder;
 import no.edipost.integration.client.domain.consignment.Consignment;
 import no.edipost.integration.client.domain.consignment.Item;
 import no.edipost.integration.client.domain.service.BringDomesticCodService;
-import no.edipost.integration.client.service.DefaultEdipostService;
 import no.edipost.integration.client.service.EdipostService;
+import no.edipost.integration.client.service.EdipostServiceFactory;
 
 
 /**
@@ -13,7 +13,8 @@ public class App {
 	public static void main( String[] args ) {
 		
 		// -- Connect to service
-		EdipostService service = new DefaultEdipostService( "http://localhost:2847/edipost-integration", "f666b087a3bf58ef24082882dcd056cde3e7a2ec" );
+		//EdipostService service = new DefaultEdipostService( "http://localhost:2847/edipost-integration", "f666b087a3bf58ef24082882dcd056cde3e7a2ec" );
+		EdipostService service = EdipostServiceFactory.getService( "http://localhost:2847/edipost-integration", "f666b087a3bf58ef24082882dcd056cde3e7a2ec" );
 
 
 
