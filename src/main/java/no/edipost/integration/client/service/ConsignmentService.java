@@ -17,4 +17,5 @@ public interface ConsignmentService {
 	InputStream getConsignmentAsPdf( long consignmentID );
 	void printConsignment( Long id, String printerName );
 	Consignment saveConsignment( Consignment consignment );
+	Consignment postage( Consignment consignment );
 }

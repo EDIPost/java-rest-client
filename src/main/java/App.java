@@ -127,6 +127,7 @@ public class App {
 
 
 
+		/*
 		ConsignmentBuilder builder = service.consignmentBuilder();
 
 		Consignment myConsignment = builder
@@ -138,7 +139,24 @@ public class App {
 			.setContentReference( "Innholdet" )
 			.build();
 
+
 		myConsignment.save();
+		*/
+
+
+
+
+		/*
+		Consignment postageConsignment = myConsignment.postage();
+
+		for( Item item : postageConsignment.getItems().getEntries() ) {
+			System.out.println( item.getCost() + " - " + item.getVat() );
+		}
+		*/
+
+
+
+
 
 
 	}

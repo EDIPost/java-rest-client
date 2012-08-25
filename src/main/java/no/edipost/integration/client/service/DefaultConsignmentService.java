@@ -107,4 +107,23 @@ public class DefaultConsignmentService implements ConsignmentService {
 
 		return response.getEntity( Consignment.class );
 	}
+
+
+	public Consignment postage( Consignment consignment ) {
+		ClientResponse response;
+
+		response = resource
+				.path( "postage" )
+				.accept( "application/vnd.edipost.consignment+xml" )
+				.type( "application/vnd.edipost.consignment+xml" )
+				.header( "Authorization", "Basic " + apiKey )
+				.post( ClientResponse.class, consignment );
+
+		if( response.getStatus() != Response.Status.OK.getStatusCode() ) {
+			throw new WebServiceException( Response.Status.fromStatusCode( response.getStatus() ).getReasonPhrase() +
+					": " + response.getEntity( String.class ) );
+		}
+
+		return response.getEntity( Consignment.class );
+	}
 }

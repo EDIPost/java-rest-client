@@ -122,4 +122,9 @@ public class Consignment {
 	public Consignment save() {
 		return Locator.resolve( ConsignmentService.class ).saveConsignment( this );
 	}
+
+
+	public Consignment postage() {
+		return Locator.resolve( ConsignmentService.class ).postage( this );
+	}
 }
