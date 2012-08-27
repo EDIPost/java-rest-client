@@ -12,7 +12,7 @@ import java.util.List;
 
 
 /**
- *
+ * Default implementation of {@link EdipostService}.
  *
  * @author Mathias Bjerke
  */

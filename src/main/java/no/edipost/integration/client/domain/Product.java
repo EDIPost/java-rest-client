@@ -9,7 +9,7 @@ import java.util.List;
 
 
 /**
- *
+ * Product represents a sending method at the {@link Transporter}. Examples of delivery methods are cargo, express, couriers, etc
  *
  * @author Mathias Bjerke
  */

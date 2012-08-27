@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- *
+ * A Consignee represents the sending end of a {@link no.edipost.integration.client.domain.consignment.Consignment}
  *
  * @author Mathias Bjerke
  */

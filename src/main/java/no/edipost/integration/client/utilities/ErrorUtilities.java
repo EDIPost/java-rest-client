@@ -7,6 +7,8 @@ import javax.xml.ws.WebServiceException;
 
 
 /**
+ * Utility class related to error reporting
+ *
  * @author Mathias Bjerke
  */
 public class ErrorUtilities {

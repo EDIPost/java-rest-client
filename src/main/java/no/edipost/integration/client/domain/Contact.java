@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- *
+ * Contact represents a contact person in a {@link Consignor} and {@link Consignee}
  *
  * @author Mathias Bjerke
  */

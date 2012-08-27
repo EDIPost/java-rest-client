@@ -2,7 +2,7 @@ package no.edipost.integration.client.exception;
 
 
 /**
- *
+ * Runtime Exception thrown if there is problems related to printing
  *
  * @author Mathias Bjerke
  */

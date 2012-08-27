@@ -16,7 +16,7 @@ import java.util.List;
 
 
 /**
- *
+ * Default implementation of {@link ProductService}.
  *
  * @author Mathias Bjerke
  */

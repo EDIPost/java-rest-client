@@ -6,6 +6,8 @@ import java.util.List;
 
 
 /**
+ * ProductService contain operations related to {@link Consignee}
+ *
  * @author Mathias Bjerke
  */
 public interface ConsigneeService {

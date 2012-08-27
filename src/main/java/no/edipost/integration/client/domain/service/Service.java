@@ -5,7 +5,8 @@ import javax.xml.bind.annotation.*;
 
 
 /**
- *
+ * A Service represents an additional service on a {@link no.edipost.integration.client.domain.Product}.
+ * Examples of services are Collection On Delivery, Extra Insurance, etc
  *
  * @author Mathias Bjerke
  */

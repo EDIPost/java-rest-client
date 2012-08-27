@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- *
+ * An Item represents a physical package in a {@link Consignment}. A consignment will always consist of one or more items
  *
  * @author Mathias Bjerke
  */

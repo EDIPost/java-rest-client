@@ -7,7 +7,7 @@ import no.edipost.integration.client.domain.Contact;
 
 
 /**
- *
+ * Builder class to create consignees
  *
  * @author Mathias Bjerke
  */

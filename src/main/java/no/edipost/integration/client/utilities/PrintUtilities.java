@@ -9,7 +9,7 @@ import java.io.InputStream;
 
 
 /**
- *
+ * Utility class related to printing
  *
  * @author Mathias Bjerke
  */

@@ -11,6 +11,8 @@ import java.util.List;
 
 
 /**
+ * Builder class to create consignments
+ *
  * @author Mathias Bjerke
  */
 public class ConsignmentBuilder {

@@ -13,7 +13,7 @@ import java.util.List;
 
 
 /**
- *
+ * Default implementation of {@link ConsignmentService}.
  *
  * @author Mathias Bjerke
  */

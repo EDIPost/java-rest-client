@@ -6,7 +6,7 @@ import java.util.Map;
 
 
 /**
- *
+ * Locator offers a basic implementation of the service locator pattern.
  * 
  * @author Mathias Bjerke
  */

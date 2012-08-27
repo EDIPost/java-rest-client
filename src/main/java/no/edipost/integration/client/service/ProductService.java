@@ -7,7 +7,7 @@ import java.util.List;
 
 
 /**
- *
+ * ProductService contain operations related to {@link Product}
  *
  * @author Mathias Bjerke
  */

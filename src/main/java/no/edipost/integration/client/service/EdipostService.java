@@ -14,7 +14,11 @@ import java.util.List;
  *
  * An instance of EdipostService can be obtained using EdipostServiceFactory.
  *
+ * <p><blockquote><pre>
+ * {@code
  * EdipostService service = EdipostServiceFactory.getService( "http://api.edipost.no", "myapikey" );
+ * }
+ * </pre></blockquote></p>
  *
  * @author Mathias Bjerke
  */

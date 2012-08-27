@@ -7,7 +7,7 @@ import no.edipost.integration.client.utilities.ErrorUtilities;
 
 
 /**
- *
+ * Default implementation of {@link ConsignorService}.
  *
  * @author Mathias Bjerke
  */

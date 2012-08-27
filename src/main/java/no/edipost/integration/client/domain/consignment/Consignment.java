@@ -16,9 +16,27 @@ import java.util.List;
 
 
 /**
+ * A Consignment represents a transfer of goods from a consignor to a consignee.
  *
+ * The consignment can consist of one or more of physical packages, here referred to as a list of {@link Item}
+ *
+ * The consignment class is not meant to be instantiated directly, but rather created used {@link no.edipost.integration.client.builder.ConsignmentBuilder}.
+ *
+ * <p><blockquote><pre>
+ * {@code
+ * Consignment myConsignment = builder
+ *    .setConsignorID( 3311 )
+ *    .setConsigneeID( 191511 )
+ *    .addItem( new Item( 1.0, 10.0, 10.0, 10.0 ) )
+ *    .setProductID( 13 )
+ *    .addService( new BringDomesticCodService( 1200.00, "123456789" ) )
+ *    .setContentReference( "The consignment contains ice cream" )
+ *    .build();
+ * }
+ * </pre></blockquote></p>
  *
  * @author Mathias Bjerke
+ * @see no.edipost.integration.client.builder.ConsignmentBuilder
  */
 @XmlRootElement
 public class Consignment {

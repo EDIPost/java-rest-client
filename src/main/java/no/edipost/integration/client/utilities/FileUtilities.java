@@ -9,7 +9,7 @@ import java.io.OutputStream;
 
 
 /**
- *
+ * Utility class related reading files
  *
  * @author Mathias Bjerke
  */
