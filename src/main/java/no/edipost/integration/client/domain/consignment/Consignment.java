@@ -6,11 +6,13 @@ import no.edipost.integration.client.domain.Consignor;
 import no.edipost.integration.client.domain.Product;
 import no.edipost.integration.client.service.ConsignmentService;
 import no.edipost.integration.client.service.Locator;
+import no.edipost.integration.client.service.ProductService;
 import no.edipost.integration.client.utilities.FileUtilities;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.InputStream;
+import java.util.List;
 
 
 /**
@@ -126,5 +128,10 @@ public class Consignment {
 
 	public Consignment postage() {
 		return Locator.resolve( ConsignmentService.class ).postage( this );
+	}
+
+
+	public List<Product> products() {
+		return Locator.resolve( ProductService.class ).products( this );
 	}
 }

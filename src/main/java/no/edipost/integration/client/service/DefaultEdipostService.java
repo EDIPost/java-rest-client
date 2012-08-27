@@ -28,6 +28,7 @@ class DefaultEdipostService implements EdipostService {
 		Locator.register( ConsigneeService.class, new DefaultConsigneeService( createClient(), baseURL, packageApiKey( apiKey ) ) );
 		Locator.register( ConsignorService.class, new DefaultConsignorService( createClient(), baseURL, packageApiKey( apiKey ) ) );
 		Locator.register( ConsignmentService.class, new DefaultConsignmentService( createClient(), baseURL, packageApiKey( apiKey ) ) );
+		Locator.register( ProductService.class, new DefaultProductService( createClient(), baseURL, packageApiKey( apiKey ) ) );
 	}
 
 

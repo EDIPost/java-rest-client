@@ -1,9 +1,11 @@
 import no.edipost.integration.client.builder.ConsignmentBuilder;
+import no.edipost.integration.client.domain.Product;
 import no.edipost.integration.client.domain.consignment.Consignment;
 import no.edipost.integration.client.domain.consignment.Item;
 import no.edipost.integration.client.domain.service.BringDomesticCodService;
 import no.edipost.integration.client.service.EdipostService;
 import no.edipost.integration.client.service.EdipostServiceFactory;
+import java.util.List;
 
 
 /**
@@ -128,7 +130,7 @@ public class App {
 
 
 
-		/*
+
 		ConsignmentBuilder builder = service.consignmentBuilder();
 
 		Consignment myConsignment = builder
@@ -141,8 +143,8 @@ public class App {
 			.build();
 
 
-		myConsignment.save();
-		*/
+		//myConsignment.save();
+
 
 
 
@@ -156,7 +158,8 @@ public class App {
 		*/
 
 
-
+		List<Product> products = myConsignment.products();
+		System.out.println( products.size() );
 
 
 
