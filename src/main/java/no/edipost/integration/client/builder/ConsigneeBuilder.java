@@ -24,6 +24,7 @@ public class ConsigneeBuilder {
 	private String country;
 	private String contactName;
 	private String contactPhone;
+	private String contactCellPhone;
 	private String contactEmail;
 
 
@@ -104,6 +105,12 @@ public class ConsigneeBuilder {
 	}
 
 
+	public ConsigneeBuilder setContactCellPhone( String contactCellPhone ) {
+		this.contactCellPhone = contactCellPhone;
+		return this;
+	}
+
+
 	public ConsigneeBuilder setContactEmail( String contactEmail ) {
 		this.contactEmail = contactEmail;
 		return this;
@@ -124,6 +131,7 @@ public class ConsigneeBuilder {
 		Contact contact = new Contact();
 		contact.setName( contactName );
 		contact.setTelephone( contactPhone );
+		contact.setCellphone( contactCellPhone );
 		contact.setEmail( contactEmail );
 
 		Consignee consignee = new Consignee();
