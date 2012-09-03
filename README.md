@@ -19,7 +19,6 @@ Build and save consignee
 ConsigneeBuilder builder = service.consigneeBuilder();
 
 Consignee myConsignee = builder
-	.setID(261686)
 	.setCompanyName( "Et annet navn" )
 	.setPostZip( "1337" )
 	.setStreetZip( "1337" )
