@@ -6,7 +6,7 @@ Connect to service
 
 ```java
 EdipostService service = EdipostServiceFactory.getService(
-	"http://localhost:2847/edipost-integration",
+	"http://api.edipost.no",
 	"f666b087a3bf58ef24082882dcd056cde3e7a2ec" );
 ```
 
