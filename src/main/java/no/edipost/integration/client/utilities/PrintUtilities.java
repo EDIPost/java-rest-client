@@ -3,6 +3,8 @@ package no.edipost.integration.client.utilities;
 
 import no.edipost.integration.client.exception.PrintException;
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.printing.PDFPageable;
+
 import javax.print.PrintService;
 import java.awt.print.PrinterJob;
 import java.io.InputStream;
@@ -25,7 +27,10 @@ public class PrintUtilities {
 			printJob.setJobName( "Edipost label" );
 			printJob.setPrintService( getPrintServiceByName( printerName ) );
 
-			document.silentPrint( printJob );
+			PrinterJob job = PrinterJob.getPrinterJob();
+			job.setPageable(new PDFPageable(document));
+			job.print();
+
 			document.close();
 
 		} catch( Exception e ) {

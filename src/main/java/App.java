@@ -1,4 +1,5 @@
 import no.edipost.integration.client.builder.ConsignmentBuilder;
+import no.edipost.integration.client.domain.Consignor;
 import no.edipost.integration.client.domain.Product;
 import no.edipost.integration.client.domain.consignment.Consignment;
 import no.edipost.integration.client.domain.consignment.Item;
@@ -16,7 +17,7 @@ public class App {
 		
 		// -- Connect to service
 		//EdipostService service = new DefaultEdipostService( "http://localhost:2847/edipost-integration", "f666b087a3bf58ef24082882dcd056cde3e7a2ec" );
-		EdipostService service = EdipostServiceFactory.getService( "http://localhost:2847/edipost-integration", "f666b087a3bf58ef24082882dcd056cde3e7a2ec" );
+		EdipostService service = EdipostServiceFactory.getService( "https://api.dev.edipost.no", "07add61e089e3e8d3a1a7e34e71f462eee2ef8f5" );
 
 
 
@@ -65,10 +66,10 @@ public class App {
 
 
 
-		/*
+
 		Consignor consignor = service.getDefaultConsignor();
 		System.out.println( consignor.getCompanyName() );
-		*/
+
 
 
 
@@ -120,10 +121,9 @@ public class App {
 
 
 
-		/*
-		Consignment consignment = service.getConsignment( 95256 );
+
+		Consignment consignment = service.getConsignment( 5190611 );
 		consignment.print( "PDF" );
-		*/
 
 
 
@@ -131,6 +131,8 @@ public class App {
 
 
 
+
+		/*
 		ConsignmentBuilder builder = service.consignmentBuilder();
 
 		Consignment myConsignment = builder
@@ -141,7 +143,7 @@ public class App {
 			.addService( new BringDomesticCodService( 1200.00, "123456789" ) )
 			.setContentReference( "Innholdet" )
 			.build();
-
+		 */
 
 		//myConsignment.save();
 
@@ -158,8 +160,10 @@ public class App {
 		*/
 
 
+		/*
 		List<Product> products = myConsignment.products();
 		System.out.println( products.size() );
+		 */
 
 
 
